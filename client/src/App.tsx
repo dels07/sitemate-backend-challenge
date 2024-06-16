@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { DataTable } from './components/DataTable';
+import { FormInput } from './components/FormInput';
 
 export type IssueType = {
   id?: number;
@@ -78,6 +79,15 @@ function App() {
         setDeleteId={setDeleteId}
         setOpenForm={setOpenForm}
         setOpenDelete={setOpenDelete}
+      />
+      <FormInput
+        issue={issueDetail}
+        createIssue={createIssue}
+        updateIssue={updateIssue}
+        payloadData={payloadData}
+        setPayloadData={setPayloadData}
+        openForm={openForm}
+        setOpenForm={setOpenForm}
       />
     </>
   );
