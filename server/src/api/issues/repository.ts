@@ -1,4 +1,6 @@
-import { type Issue, issues } from './model';
+import { type Issue, issues as data } from './model';
+
+let issues = data;
 
 export const find = () => {
     return issues;
@@ -35,8 +37,7 @@ export const destroy = (id: number) => {
         return false;
     }
 
-    const idx = id - 1;
-    delete issues[idx];
+    issues = issues.filter((issue) => issue.id !== id);
 
     return true;
 }
