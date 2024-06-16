@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+type IssueType = {
+  id?: number;
+  title: string;
+  description: string;
+}
+
 function App() {
   const [issues, setIssues] = useState([]);
   const [issueDetail, setIssueDetail] = useState(null);
