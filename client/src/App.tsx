@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { DataTable } from './components/DataTable';
 
-type IssueType = {
+export type IssueType = {
   id?: number;
   title: string;
   description: string;
@@ -64,8 +65,21 @@ function App() {
     setOpenDelete(false);
   }
 
-  return (
+  useEffect(() => {
+    getIssues();
+  }, []);
 
+  return (
+    <>
+      <DataTable
+        issues={issues}
+        getIssue={getIssue}
+        setIssueDetail={setIssueDetail}
+        setDeleteId={setDeleteId}
+        setOpenForm={setOpenForm}
+        setOpenDelete={setOpenDelete}
+      />
+    </>
   );
 }
 
